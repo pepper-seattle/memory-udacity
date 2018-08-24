@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <meta charset="utf-8">
+      <title>Matching Game</title>
+      <meta name="description" content="">
+    <link rel="stylesheet" href="app.css">
+    <link href="https://fonts.googleapis.com/css?family=Dosis|Exo+2" rel="stylesheet">
+    <link rel="stylesheet prefetch" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+  </head>
+  <body>
+
+  <div class="container">
+    <h1>Memory</h1>
+
+    <section class="score-panel">
+
+        <h3>Moves:</h3>
+        <p id="moves"></p>
+
+        <ul class="stars">
+          <li class="star" id="star1"><i class="fa fa-star"></i></li>
+          <li class="star" id="star2"><i class="fa fa-star"></i></li>
+          <li class="star" id="star3"><i class="fa fa-star"></i></li>
+          <li class="star" id="star4"><i class="fa fa-star"></i></li>
+          <li class="star" id="star5"><i class="fa fa-star"></i></li>
+        </ul>
+
+        <p id="timer">00:00</p>
+
+        <button class="reset-button" onclick="reset()">Reset</button>
+    </section>
+
+    <ul class="deck">
+        <li class="closed" id="card">
+            <i class="fa fa-diamond"></i>
+        </li>
+        <li class="closed" id="card">
+            <i class="fa fa-paper-plane-o"></i>
+        </li>
+        <li class="closed" id="card">
+            <i class="fa fa-anchor"></i>
+        </li>
+        <li class="closed" id="card">
+            <i class="fa fa-bolt"></i>
+        </li>
+        <li class="closed" id="card">
+            <i class="fa fa-cube"></i>
+        </li>
+        <li class="closed" id="card">
+            <i class="fa fa-anchor"></i>
+        </li>
+        <li class="closed" id="card">
+            <i class="fa fa-leaf"></i>
+        </li>
+        <li class="closed" id="card">
+            <i class="fa fa-bicycle"></i>
+        </li>
+        <li class="closed" id="card">
+            <i class="fa fa-diamond"></i>
+        </li>
+        <li class="closed" id="card">
+            <i class="fa fa-bomb"></i>
+        </li>
+        <li class="closed" id="card">
+            <i class="fa fa-leaf"></i>
+        </li>
+        <li class="closed" id="card">
+            <i class="fa fa-bomb"></i>
+        </li>
+        <li class="closed" id="card">
+            <i class="fa fa-bolt"></i>
+        </li>
+        <li class="closed" id="card">
+            <i class="fa fa-bicycle"></i>
+        </li>
+        <li class="closed" id="card">
+            <i class="fa fa-paper-plane-o"></i>
+        </li>
+        <li class="closed" id="card">
+            <i class="fa fa-cube"></i>
+        </li>
+    </ul>
+  </div>
+
+  <div class="modal">
+      <div class="modal-content">
+        <button class="close-button" onclick="reset()">X</button>
+
+        <h2>Nice Work!!</h2>
+        <p>You've mastered your mind and matched all the cards! Would you like to play again?</p>
+
+        <div class="lower-modal-content">
+            <button class="replay-button" onclick="reset()">Heck Yes!</button>
+
+            <div class="scores">
+                <h3>Moves:</h3>
+                <p id="moveResult"></p>
+
+                <h3>Stars:</h3>
+                <p id="starResult"></p>
+
+                <h3>Time:</h3>
+                <p id="timeResult"></p>
+            </div>
+        </div>
+      </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
