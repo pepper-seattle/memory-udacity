@@ -9,14 +9,13 @@ const timer = document.getElementById("timer");
 
 let checkArray = [];
 let fullDeck = [...cards];
-
 let missedCount = 0;
 let moveCount = 0;
+
 let running = 0;
 let starCount = 5;
 let time = 0;
 let winArray = [];
-let winCount = 0;
 
 /* Game Setup */
 const shuffle = (array) => {
@@ -87,6 +86,8 @@ const startTimer = () => {
 /* Gameplay Functionality */
 //Main game play function
 const gamePlay = () => {
+  let winCount = 0;
+
   cards.forEach((card) => {
     card.addEventListener('click', () => {
       if(time === 0 || time === 1){
@@ -105,9 +106,6 @@ const gamePlay = () => {
             moves.innerHTML = moveCount;
           };
       };
-    if(winCount === 8){
-      endGame();
-    };
     });
   });
 };
@@ -125,6 +123,10 @@ const matching = (card) => {
   winArray.push(checkArray[0], checkArray[1]);
   //empty checkArray for next check
   checkArray = [];
+
+  if(winCount === 8){
+    endGame();
+  };
 };
 
 const noMatch = (card) => {
@@ -157,6 +159,7 @@ const matchCheck = (checkArray) => {
 //Reduces the number of stars by the number of missed matches
 const starReducer = () => {
   missedCount++;
+
   if(missedCount === 5){
       starCount = 4;
       stars[4].classList.add('hide');
@@ -174,6 +177,7 @@ const starReducer = () => {
 
 //Reset all counts and classes
 const reset = () => {
+  checkArray = [];
   running = 0;
   starCount = 5;
   time = 0;
@@ -199,28 +203,26 @@ const reset = () => {
 
 //End Game
 const endGame = () => {
-  if(winCount === 8){
-    const starResult = document.getElementById("starResult");
-    const timeResult = document.getElementById("timeResult");
-    const moveResult = document.getElementById("moveResult");
-    //stop timer
-    running = 0;
+  const starResult = document.getElementById("starResult");
+  const timeResult = document.getElementById("timeResult");
+  const moveResult = document.getElementById("moveResult");
+  //stop timer
+  running = 0;
 
-    //pop up modal
-    modal.style.visibility = 'visible';
-    modalContent.style.visibility = 'visible';
+  //pop up modal
+  modal.style.visibility = 'visible';
+  modalContent.style.visibility = 'visible';
 
-    //change star color
-    stars.forEach((star) => {
-      star.style.color = '#ffdf00';
-    });
+  //change star color
+  stars.forEach((star) => {
+    star.style.color = '#ffdf00';
+  });
 
-    //Add results to modal
-    moveResult.innerHTML = moveCount;
-    starResult.innerHTML = starCount;
-    let timerStop = document.getElementById("timer").innerText;
-    timeResult.innerHTML = timerStop;
-  };
+  //Add results to modal
+  moveResult.innerHTML = moveCount;
+  starResult.innerHTML = starCount;
+  let timerStop = document.getElementById("timer").innerText;
+  timeResult.innerHTML = timerStop;
 };
 
 //Initial load shuffle
