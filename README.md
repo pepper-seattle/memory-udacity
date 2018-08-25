@@ -8,6 +8,7 @@ Click or tap a card to flip it over. As you flip cards remember their symbol and
 
 Once you have all cards matched up the time will stop and you'll see how you faired. Play again to try to beat your last time!
 
+<<<<<<< HEAD
 ##Dependencies 
 The Memory game relies on the following: 
 * Google fonts for the Dosis and Exo 2 fonts, 
@@ -24,3 +25,5 @@ Functionality:
 * * For a missed count the starReducer function is employed to remove star ratings as the game progresses and the afore mentioned limits are met
 * The Reset button allows the player to start over whenever they'd like
 * Once all cards are matched the endGame function pops up a modal with player stats and an offer to play again
+=======
+>>>>>>> 6d838784a1dbdbb051d9a54916a3bfd2a8e9ea44

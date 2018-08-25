@@ -9,13 +9,23 @@ const timer = document.getElementById("timer");
 
 let checkArray = [];
 let fullDeck = [...cards];
+<<<<<<< HEAD
 let missedCount = 0;
 let moveCount = 0;
 
+=======
+
+let missedCount = 0;
+let moveCount = 0;
+>>>>>>> 6d838784a1dbdbb051d9a54916a3bfd2a8e9ea44
 let running = 0;
 let starCount = 5;
 let time = 0;
 let winArray = [];
+<<<<<<< HEAD
+=======
+let winCount = 0;
+>>>>>>> 6d838784a1dbdbb051d9a54916a3bfd2a8e9ea44
 
 /* Game Setup */
 const shuffle = (array) => {
@@ -86,8 +96,11 @@ const startTimer = () => {
 /* Gameplay Functionality */
 //Main game play function
 const gamePlay = () => {
+<<<<<<< HEAD
   let winCount = 0;
 
+=======
+>>>>>>> 6d838784a1dbdbb051d9a54916a3bfd2a8e9ea44
   cards.forEach((card) => {
     card.addEventListener('click', () => {
       if(time === 0 || time === 1){
@@ -106,6 +119,12 @@ const gamePlay = () => {
             moves.innerHTML = moveCount;
           };
       };
+<<<<<<< HEAD
+=======
+    if(winCount === 8){
+      endGame();
+    };
+>>>>>>> 6d838784a1dbdbb051d9a54916a3bfd2a8e9ea44
     });
   });
 };
@@ -123,10 +142,13 @@ const matching = (card) => {
   winArray.push(checkArray[0], checkArray[1]);
   //empty checkArray for next check
   checkArray = [];
+<<<<<<< HEAD
 
   if(winCount === 8){
     endGame();
   };
+=======
+>>>>>>> 6d838784a1dbdbb051d9a54916a3bfd2a8e9ea44
 };
 
 const noMatch = (card) => {
@@ -159,7 +181,10 @@ const matchCheck = (checkArray) => {
 //Reduces the number of stars by the number of missed matches
 const starReducer = () => {
   missedCount++;
+<<<<<<< HEAD
 
+=======
+>>>>>>> 6d838784a1dbdbb051d9a54916a3bfd2a8e9ea44
   if(missedCount === 5){
       starCount = 4;
       stars[4].classList.add('hide');
@@ -177,7 +202,10 @@ const starReducer = () => {
 
 //Reset all counts and classes
 const reset = () => {
+<<<<<<< HEAD
   checkArray = [];
+=======
+>>>>>>> 6d838784a1dbdbb051d9a54916a3bfd2a8e9ea44
   running = 0;
   starCount = 5;
   time = 0;
@@ -203,6 +231,7 @@ const reset = () => {
 
 //End Game
 const endGame = () => {
+<<<<<<< HEAD
   const starResult = document.getElementById("starResult");
   const timeResult = document.getElementById("timeResult");
   const moveResult = document.getElementById("moveResult");
@@ -223,6 +252,30 @@ const endGame = () => {
   starResult.innerHTML = starCount;
   let timerStop = document.getElementById("timer").innerText;
   timeResult.innerHTML = timerStop;
+=======
+  if(winCount === 8){
+    const starResult = document.getElementById("starResult");
+    const timeResult = document.getElementById("timeResult");
+    const moveResult = document.getElementById("moveResult");
+    //stop timer
+    running = 0;
+
+    //pop up modal
+    modal.style.visibility = 'visible';
+    modalContent.style.visibility = 'visible';
+
+    //change star color
+    stars.forEach((star) => {
+      star.style.color = '#ffdf00';
+    });
+
+    //Add results to modal
+    moveResult.innerHTML = moveCount;
+    starResult.innerHTML = starCount;
+    let timerStop = document.getElementById("timer").innerText;
+    timeResult.innerHTML = timerStop;
+  };
+>>>>>>> 6d838784a1dbdbb051d9a54916a3bfd2a8e9ea44
 };
 
 //Initial load shuffle
